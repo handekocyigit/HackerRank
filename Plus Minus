@@ -1,0 +1,48 @@
+Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero.Print the decimal value of each fraction on a new line with 6 places after the decimal.
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        
+        decimal n = Convert.ToDecimal(Console.ReadLine());
+        
+        string elements = Console.ReadLine();
+        string[] elementList = elements.Split(' ');
+        
+        decimal negativeNumbers = 0;
+        decimal positiveNumbers = 0;
+        decimal zeros = 0;
+        
+        for(int i = 0; i<n; i++)
+        {
+            int value = Convert.ToInt32(elementList[i]);
+            if(value < 0)
+            {
+                negativeNumbers++;
+            }
+            else if(value == 0)
+            {
+                zeros++;
+            }
+            else
+            {
+               positiveNumbers++;
+            }
+            
+        }
+        
+        decimal first = positiveNumbers/n;
+        decimal second = negativeNumbers/n;
+        decimal third = zeros/n;
+        
+        Console.WriteLine(first.ToString("0.000"));
+        Console.WriteLine(second.ToString("0.000"));
+        Console.WriteLine(third.ToString("0.000"));
+        
+        
+     
+    }
+}
